@@ -14,6 +14,7 @@ function api_request($path, $opts = null, $type = null) {
     global $apiproto, $apisslverify, $apisid, $apiuser, $apipass, $apiip, $apiport, $authmethod, $apipath;
 
     $url = "$apiproto://$apiip:$apiport${apipath}${path}";
+    $url=str_replace("api/v1api/v1","api/v1",$url);
 
     if ($authmethod == "auto") {
         $ad = curl_init();
